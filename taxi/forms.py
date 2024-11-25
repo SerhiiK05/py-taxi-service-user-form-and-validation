@@ -1,13 +1,17 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
 
 from taxi.models import Driver, Car
 
 
-class DriverLicenseUpdateForm(forms.ModelForm):
-    class Meta:
+class DriverCreationForm(UserCreationForm):
+
+    class Meta(UserCreationForm.Meta):
         model = Driver
-        fields = ("license_number",)
+        fields = UserCreationForm.Meta.fields + (
+           "license_number",
+        )
 
 
 class CarForm(forms.ModelForm):
