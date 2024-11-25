@@ -22,7 +22,8 @@ class Driver(AbstractUser):
         validators=[
             RegexValidator(
                 regex=r"^[A-Z]{3}\d{5}$",
-                message="This field must consist of 3 uppercase letters followed by 5 digits.",
+                message="This field must consist of "
+                        "3 uppercase letters followed by 5 digits.",
             )
         ],
     )
