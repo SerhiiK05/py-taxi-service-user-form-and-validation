@@ -12,6 +12,12 @@ class DriverCreationForm(UserCreationForm):
         fields = UserCreationForm.Meta.fields + ("license_number",)
 
 
+class DriverLicenseUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Driver
+        fields = ("license_number",)
+
+
 class CarForm(forms.ModelForm):
     drivers = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
